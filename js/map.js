@@ -52,9 +52,9 @@ $(document).ready(function () {
         if (map.skybox !== undefined) {
             map.removeLayer(map.skybox);
         }
-        var bounds = "bounds 18 39 61 163";
+        var bounds = "bounds 18 19 60 196";
         bounds=bounds.split(" ").slice(1).map(i=>~~i);
-        bounds=[bounds.slice(0,2),bounds.slice(2,4)];
+        bounds=[bounds.slice(0,2),[bounds[2]+1, bounds[3]+1]];
         bounds=bounds.map(i=>new Position(i[0]*64, i[1]*64).toLatLng(map));
         map.skybox = L.imageOverlay("skybox_export.png",bounds, {
             opacity:.5,
